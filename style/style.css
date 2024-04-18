@@ -1,0 +1,40 @@
+/* Animasi saat input difokus */
+input[type=message]:focus, input[type=email]:focus, input[type=text]:focus, textarea:focus {
+  border-color: #8B0000; /* Misalnya, ubah warna border saat difokus */
+  box-shadow: 0 0 5px rgba(139, 0, 0, 0.5); /* Misalnya, tambahkan shadow saat difokus */
+  animation: shake 0.5s ease; /* Tambahkan animasi shake saat input difokus */
+}
+
+/* Animasi saat input diisi */
+input[type=message]:valid + label,
+input[type=email]:valid + label,
+input[type=text]:valid + label,
+textarea:valid + label {
+  top: -20px; /* Pindahkan label ke atas */
+  font-size: 12px; /* Perbesar ukuran font */
+  color: #04AA6D; /* Misalnya, ubah warna label saat diisi */
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease; /* Animasi perubahan */
+  animation: slideInFromTop 0.5s ease; /* Tambahkan animasi slide in dari atas saat input diisi */
+}
+
+/* Animasi saat scroll */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi shake saat input difokus */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
